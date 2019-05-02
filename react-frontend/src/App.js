@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import $ from 'jquery';
 import './App.css';
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     render() {
       var squareStyle = {
         margin: 5,
-        width: "100%",
+        width: this.props.sqWidth,
         float: "left",
         backgroundColor: this.props.bgColor,
         height: this.props.sqHeight
@@ -22,18 +23,18 @@ function App() {
 
   function MondrianOne(props) {
     return(
-      <div className="container-one">
-        <div className="one-one">
-          <Square bgColor={window.a} sqHeight="80px" />
-          <Square bgColor={window.b} sqHeight="130px" />
+      <div className="container-one painting">
+        <div className="columnStyle">
+          <Square bgColor={window.a} sqHeight={window.r1_1} sqWidth={window.p_w1_1} />
+          <Square bgColor={window.b} sqHeight={window.c1_1} sqWidth={window.p_w1_1} />
         </div>
-        <div className="two-one">
-          <Square bgColor={window.c} sqHeight="220px" />
+        <div className="columnStyle">
+          <Square bgColor={window.c} sqHeight="220px" sqWidth={window.p_w2_1} />
         </div>
-        <div className="three-one">
-          <Square bgColor={window.d} sqHeight="30px" />
-          <Square bgColor={window.e} sqHeight="120px" />
-          <Square bgColor={window.f} sqHeight="50px" />
+        <div className="columnStyle">
+          <Square bgColor={window.d} sqHeight={window.r2_1} sqWidth={window.p_w3_1} />
+          <Square bgColor={window.e} sqHeight={window.r3_1} sqWidth={window.p_w3_1} />
+          <Square bgColor={window.f} sqHeight={window.c2_1} sqWidth={window.p_w3_1} />
         </div>
       </div>
     );
@@ -41,18 +42,18 @@ function App() {
 
   function MondrianTwo(props) {
     return(
-      <div className="container-two">
-        <div className="one-two">
-          <Square bgColor={window.d} sqHeight="100px" />
-          <Square bgColor={window.e} sqHeight="160px" />
-          <Square bgColor={window.f} sqHeight="50px" />
+      <div className="container-two painting">
+        <div className="columnStyle">
+          <Square bgColor={window.d} sqHeight={window.r1_2} sqWidth={window.p_w1_2} />
+          <Square bgColor={window.e} sqHeight={window.r2_2} sqWidth={window.p_w1_2} />
+          <Square bgColor={window.f} sqHeight={window.r3_2} sqWidth={window.p_w1_2} />
         </div>
-        <div className="two-two">
-          <Square bgColor={window.c} sqHeight="330px" />
+        <div className="columnStyle">
+          <Square bgColor={window.c} sqHeight="330px" sqWidth={window.p_w2_2} />
         </div>
-        <div className="three-two">
-          <Square bgColor={window.a} sqHeight="50px" />
-          <Square bgColor={window.b} sqHeight="270px" />
+        <div className="columnStyle">
+          <Square bgColor={window.a} sqHeight={window.r4_2} sqWidth={window.p_w3_2} />
+          <Square bgColor={window.b} sqHeight={window.r5_2} sqWidth={window.p_w3_2} />
         </div>
       </div>
     );
@@ -67,19 +68,28 @@ function App() {
     return <MondrianTwo />;
   }
 
+  function refreshPage(){
+    window.location.reload();
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <p className="righteous">{window.name}</p>
-        <p className="author">BY @AGOVC</p>
+        <p className="author">w/ 💕 by @AGOVC, about <a target="_blank" href="https://github.com/agovc/mondrian">the PROJECT</a></p>
 
+        <button className="button" type="button" onClick={ refreshPage }>
         <Mondrian />
+        </button>
 
       </header>
+
+
 
     </div>
 
   );
+
 }
 
 export default App;
